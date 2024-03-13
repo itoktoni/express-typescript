@@ -1,4 +1,4 @@
-import express, { Router } from 'express';
+import express, { Router, Request, Response } from 'express';
 import { validateData } from '../middleware/validationMiddleware';
 import { userRegistrationSchema, userLoginSchema } from '../schemas/loginSchemas';
 import { registerUser, loginUser } from '../controllers/LoginController';

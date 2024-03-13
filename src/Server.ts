@@ -4,6 +4,7 @@ import bodyParser from 'body-parser';
 import morgan from 'morgan';
 import LoginRoutes from './routes/LoginRoutes';
 import UserRoutes from './routes/UserRoutes';
+import { config as dotenv } from 'dotenv';
 
 class Server{
   public app:Application;
@@ -12,6 +13,8 @@ class Server{
     this.app = express();
     this.plugins();
     this.routes();
+
+    dotenv();
   }
 
   protected plugins(): void {
@@ -29,5 +32,6 @@ const app = new Server().app
 const port: number = 3000;
 
 app.listen(port, () => {
+  console.log(process.env.APP_ENV);
   console.log(`Server is running on http://localhost:${port}`);
 });
