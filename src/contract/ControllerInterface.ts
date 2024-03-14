@@ -1,7 +1,7 @@
 import { Request, Response } from "express";
 
 interface RouteInterface{
-    create(req: Request, res: Response): Response;
+    list(req: Request, res: Response): Promise<Response>;
 }
 
 export default RouteInterface;
